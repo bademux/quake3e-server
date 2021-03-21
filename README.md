@@ -11,3 +11,9 @@ docker run -it \
 ```
 
 type ```quit``` to exit server
+
+# Sources
+https://github.com/bademux/quake3e-server
+# Docker Registry
+https://hub.docker.com/repository/docker/bademux/quake3e-server
+
