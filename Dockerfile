@@ -1,9 +1,9 @@
 #download once for multiarch build
 FROM scratch as caching-downloader
-ADD https://github.com/ec-/Quake3e/archive/refs/tags/2021-01-16.tar.gz /quake3e.tar.gz
+ADD https://github.com/ec-/Quake3e/archive/refs/tags/latest.tar.gz /quake3e.tar.gz
 
 FROM alpine:3.13.2 as builder
-RUN apk add --no-cache --update cmake build-base curl-dev bash
+RUN apk add --no-cache --update linux-headers build-base curl-dev bash
 COPY --from=caching-downloader / /tmp
 WORKDIR /build
 RUN tar -zxvf /tmp/quake3e.tar.gz --strip-components=1
