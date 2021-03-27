@@ -7,7 +7,7 @@ RUN apk add --no-cache --update linux-headers build-base curl-dev bash
 COPY --from=caching-downloader / /tmp
 WORKDIR /build
 RUN tar -zxvf /tmp/target.tar.gz --strip-components=1
-RUN make install BUILD_SERVER=1 BUILD_CLIENT=0 DESTDIR=. TARGET_SERVER=quake3e.ded
+RUN make install -j$(nproc) BUILD_SERVER=1 BUILD_CLIENT=0 DESTDIR=. TARGET_SERVER=quake3e.ded 
 
 # mount pk3 into /home/user/baseq3 and cfg into /home/user 
 FROM alpine:3.13.3
